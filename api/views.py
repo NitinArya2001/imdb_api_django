@@ -75,13 +75,13 @@ class UploadCSV(APIView):
 class MoviePagination(PageNumberPagination):
     page_size = 10  # Limit to 10 items per page
 
-class MovieListView(generics.ListAPIView):
+class MovieListView(generics.ListAPIView):  # Movie list api
     queryset = Movie.objects.all()
-    serializer_class = MovieSerializer
-    pagination_class = MoviePagination  # Add pagination class
+    serializer_class = MovieSerializer 
+    pagination_class = MoviePagination  # Add pagination class 
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = super().get_queryset() 
 
         
         year = self.request.query_params.get('year', None)
